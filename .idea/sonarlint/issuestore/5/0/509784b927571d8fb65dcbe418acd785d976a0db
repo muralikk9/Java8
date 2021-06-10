@@ -1,0 +1,23 @@
+
+h
+java:S1192)"KDefine a constant instead of duplicating this literal "----------" 4 times.(ã€‡’8ˆ±®Š/
+9
+java:S1643w"Use a StringBuilder instead.(¾İ„¹8³‚˜¬Š/
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(ºÃÄÅøÿÿÿÿ8³‚˜¬Š/
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(ã€‡’8ˆ±®Š/
+Z	java:S106+"9Replace this use of System.out or System.err by a logger.(ÁëÎèûÿÿÿÿ8³‚˜¬Š/
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(­ğ½¯úÿÿÿÿ8ˆ±®Š/
+U	java:S106-"9Replace this use of System.out or System.err by a logger.(ã€‡’8ˆ±®Š/
+U	java:S1064"9Replace this use of System.out or System.err by a logger.(ã€‡’8³‚˜¬Š/
+Z	java:S1066"9Replace this use of System.out or System.err by a logger.(ÁëÎèûÿÿÿÿ8ˆ±®Š/
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(­ğ½¯úÿÿÿÿ8³‚˜¬Š/
+U	java:S1068"9Replace this use of System.out or System.err by a logger.(ã€‡’8³‚˜¬Š/
+Z	java:S106r"9Replace this use of System.out or System.err by a logger.(åÉÃÃûÿÿÿÿ8³‚˜¬Š/
+U	java:S106v"9Replace this use of System.out or System.err by a logger.(Ù©È±8³‚˜¬Š/
+Z	java:S106}"9Replace this use of System.out or System.err by a logger.(¯£÷ƒÿÿÿÿÿ8³‚˜¬Š/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8³‚˜¬Š/
+Y	java:S125…"<This block of commented-out lines of code should be removed.(‘§ßÆ8¬ÄÔ®Š/
+[	java:S106‡"9Replace this use of System.out or System.err by a logger.(ÜğÄìøÿÿÿÿ8Ğ«ã®Š/
+[	java:S106¬"9Replace this use of System.out or System.err by a logger.(Ä¬–ãşÿÿÿÿ8³‚˜¬Š/
+[	java:S106­"9Replace this use of System.out or System.err by a logger.(ÅĞÚøÿÿÿÿ8³‚˜¬Š/

@@ -1,0 +1,23 @@
+
+N
+java:S1602",Remove useless curly braces around statement(ÀÒÕ±úÿÿÿÿ8¶óŸ¯Š/
+E
+java:S2140")Use "java.util.Random.nextInt()" instead.(‚°Àz8ÛþÀ¶Š/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ã€‡’8·À¥¯Š/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(³‚Û¿úÿÿÿÿ8”»£¯Š/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¶ÍÙÊûÿÿÿÿ8ŠÀ¤¯Š/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ã€‡’8¶©¡¯Š/
+X	java:S125!"<This block of commented-out lines of code should be removed.(‰§Û®8òÙ³Š/
+T	java:S106)"9Replace this use of System.out or System.err by a logger.(ÛúÔ/8ý¶ï³Š/
+Y
+java:S39726"7Move this "if" to a new line or add the missing "else".(¦ëˆ¬þÿÿÿÿ8Ê¬¶Š/
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(¯œÉ8ð¥­¶Š/
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(­üÉ×8åšù³Š/
+Z	java:S106T"9Replace this use of System.out or System.err by a logger.(–ˆü´ùÿÿÿÿ8ö­ñ¯Š/
+U	java:S106f"9Replace this use of System.out or System.err by a logger.(Ë³ð¦8ÖÉÒ¯Š/
+S
+java:S1144Q"1Remove this unused private "linearSearch" method.(øô‹øÿÿÿÿ8òÙ³Š/
+Q
+java:S1144W"/Remove this unused private "addElement" method.(„ØÇþûÿÿÿÿ8òÙ³Š/
+[
+java:S1144_"9Remove this unused private "deleteElementAtIndex" method.(¯ÉË„ùÿÿÿÿ8òÙ³Š/
