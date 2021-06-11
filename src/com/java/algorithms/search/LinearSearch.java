@@ -1,4 +1,4 @@
-package com.java.algorithms;
+package com.java.algorithms.search;
 
 // complexity of the linear search is O(n)
 public class LinearSearch {
