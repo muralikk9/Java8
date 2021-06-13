@@ -1,15 +1,17 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Runnable1 implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(Runnable1.class);
     @Override
     public void run() {
-        System.out.println("Runnable1 is running");
+        logger.info("Runnable1 is running");
     }
 
     public static void main(String[] args) {
-        Runnable runnable = new Runnable1();
-        //Thread thread  = new Thread(runnable);
-        Thread thread = new Thread(() -> System.out.println("Runnable1 is running"));
+        Thread thread = new Thread(() -> logger.info("Runnable1 is running"));
         thread.start();
     }
 }

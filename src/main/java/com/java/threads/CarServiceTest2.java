@@ -1,5 +1,8 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -9,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 class Car1 {
+    private static final Logger logger = LoggerFactory.getLogger(Car1.class);
     private String name;
     private String type;
     private int charge;
@@ -32,13 +36,13 @@ class Car1 {
     }
 
     public int service() {
-        System.out.println("starting service of the car " + name);
+        logger.info("starting service of the car : {} " , name);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("completed service of the car " + name);
+        logger.info("completed service of the car: {} " , name);
         return this.charge;
     }
 }
@@ -58,6 +62,7 @@ class ServiceBay1 implements Callable<Integer> {
 
 
 public class CarServiceTest2 {
+    private static final Logger logger = LoggerFactory.getLogger(CarServiceTest2.class);
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         List<Callable<Integer>> callableList = new ArrayList<>();
@@ -72,7 +77,7 @@ public class CarServiceTest2 {
         for (Future<Integer> integerFuture : futureList) {
             total += integerFuture.get();
         }
-        System.out.println("All cars are serviced, total charge is " + total);
+        logger.info("All cars are serviced, total charge is : {} " , total);
         executorService.shutdown();
     }
 }

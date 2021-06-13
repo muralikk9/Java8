@@ -1,6 +1,10 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class Customer {
+    private static final Logger logger = LoggerFactory.getLogger(Customer.class);
     private int balance;
 
     public Customer(int balance) {
@@ -8,7 +12,7 @@ class Customer {
     }
 
     public synchronized void withdraw(int amount) {
-        System.out.println("withdrawing amount");
+        logger.info("withdrawing amount");
         if(balance < amount) {
             try {
                 wait();
@@ -17,15 +21,15 @@ class Customer {
             }
         } else {
             balance = balance - amount;
-            System.out.println("withdrawal is successful");
+            logger.info("withdrawal is successful");
         }
     }
 
     public synchronized void deposit(int amount) {
-        System.out.println("depositing  amount");
+        logger.info("depositing  amount");
         notify();
         balance = balance + amount;
-        System.out.println("deposit successful");
+        logger.info("deposit successful");
 
     }
 }

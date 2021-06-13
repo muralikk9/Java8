@@ -1,12 +1,17 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Thread1 extends  Thread{
+
+    private static final Logger logger = LoggerFactory.getLogger(Thread1.class);
 
     @Override
     public void run() {
         try {
             Thread.sleep(10000);
-            System.out.println("my Thread is running");
+            logger.info("my Thread is running");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,9 +1,12 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicIntegerTest {
-
+    private static final Logger logger = LoggerFactory.getLogger(AtomicIntegerTest.class);
     static class Counter {
         private AtomicInteger integer = new AtomicInteger(0);
         public void increment() {
@@ -20,6 +23,6 @@ public class AtomicIntegerTest {
             new Thread(counter::increment).start();
         }
         Thread.sleep(100);
-        System.out.println("final count :" + counter.getCount());
+        logger.info("final count : {}" ,  counter.getCount());
     }
 }

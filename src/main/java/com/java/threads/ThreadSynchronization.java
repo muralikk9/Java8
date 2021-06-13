@@ -1,10 +1,14 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class Table {
+    private static final Logger logger = LoggerFactory.getLogger(Table.class);
     public synchronized void print(int n) {
 
         for (int i = 0; i < 5; i++) {
-            System.out.println(n*i);
+            logger.info("{}", n*i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

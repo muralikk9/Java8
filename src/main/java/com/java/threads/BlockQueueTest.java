@@ -1,5 +1,8 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -7,7 +10,7 @@ class Producer implements Runnable {
 
     BlockingQueue blockingQueue;
 
-    public Producer(BlockingQueue blockingQueue) {
+    public Producer(BlockingQueue<Integer> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 
@@ -15,9 +18,7 @@ class Producer implements Runnable {
     public void run() {
         try {
             blockingQueue.put(1);
-            //Thread.sleep(200);
             blockingQueue.put(2);
-            //Thread.sleep(200);
             blockingQueue.put(3);
             Thread.sleep(2000);
             blockingQueue.put(4);
@@ -34,9 +35,11 @@ class Producer implements Runnable {
 
 class Consumer implements Runnable {
 
-    BlockingQueue blockingQueue;
+    private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
-    public Consumer(BlockingQueue blockingQueue) {
+    BlockingQueue<Integer> blockingQueue;
+
+    public Consumer(BlockingQueue<Integer> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 
@@ -45,7 +48,7 @@ class Consumer implements Runnable {
         try {
             Thread.sleep(3000);
             while(true) {
-                System.out.println("get from blocking queue: " + blockingQueue.take());
+                logger.info("get from blocking queue: {}" , blockingQueue.take());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -54,12 +57,13 @@ class Consumer implements Runnable {
 }
 
 public class BlockQueueTest {
-    public static void main(String[] args) throws InterruptedException {
-        BlockingQueue blockingQueue = new ArrayBlockingQueue<>(2);
+    private static final Logger logger = LoggerFactory.getLogger(BlockQueueTest.class);
+    public static void main(String[] args)  {
+        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(2);
         Producer producer = new Producer(blockingQueue);
         Consumer consumer = new Consumer(blockingQueue);
         new Thread(producer).start();
         new Thread(consumer).start();
-        System.out.println("main thread finished execution");
+        logger.info("main thread finished execution");
     }
 }

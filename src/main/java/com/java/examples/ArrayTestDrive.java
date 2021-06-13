@@ -1,5 +1,8 @@
 package com.java.examples;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.IntPredicate;
@@ -7,21 +10,20 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ArrayTestDrive {
+    private static final Logger logger = LoggerFactory.getLogger(ArrayTestDrive.class);
     private int[] array = new int[20];
     private int arraySize = 10;
 
     public void generateRandomArray(){
-        IntStream.range(0, arraySize).forEach( i -> {
-            array[i] = (int) (Math.random() * 10) + 10;
-        });
+        IntStream.range(0, arraySize).forEach( i -> array[i] = (int) (Math.random() * 10) + 10);
     }
 
     public void printArray() {
-        System.out.println("----------");
+        logger.info("----------");
         IntStream.range(0, arraySize).forEach( i -> {
-            System.out.print("| " + i  + " ");
-            System.out.println("| " + array[i] + " |");
-            System.out.println("----------");
+            logger.info("| " + i  + " ");
+            logger.info("| " + array[i] + " |");
+            logger.info("----------");
         });
 
     }
@@ -38,7 +40,7 @@ public class ArrayTestDrive {
         //arrayTestDrive.printArray();
         //arrayTestDrive.linearSearch(19);
         arrayTestDrive.bubbleSort();
-        System.out.println("----- after sorting ------");
+        logger.info("----- after sorting ------");
         arrayTestDrive.printArray();
        arrayTestDrive.binarySearch(12);
     }
@@ -54,7 +56,7 @@ public class ArrayTestDrive {
             }  if(array[midIndex] < value) {
                 lowIndex = midIndex + 1 ;
             } else {
-                System.out.println("found element at index " + midIndex);
+                logger.info("found element at index " + midIndex);
                 lowIndex = highIndex + 1;
             }
         }

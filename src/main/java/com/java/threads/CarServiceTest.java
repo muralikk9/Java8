@@ -1,11 +1,16 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 class Car {
+
+    private static final Logger logger = LoggerFactory.getLogger(Car.class);
     private String name;
 
     public Car(String name) {
@@ -13,13 +18,13 @@ class Car {
     }
 
     public void service() {
-        System.out.println("starting service of the car " + name);
+        logger.info("starting service of the car: {} " , name);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("completed service of the car " + name);
+        logger.info("completed service of the car: {} " , name);
     }
 }
 

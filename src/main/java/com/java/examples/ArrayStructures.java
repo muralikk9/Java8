@@ -1,5 +1,8 @@
 package com.java.examples;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -8,6 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ArrayStructures {
+    private static final Logger logger = LoggerFactory.getLogger(ArrayStructures.class);
 
     private int[] theArray = new int[50]; // Creates an array with 50 indexes
 
@@ -38,22 +42,22 @@ public class ArrayStructures {
     // Prints the Array on the screen in a grid
 
     public void printArray() {
-        System.out.println("----------");
+        logger.info("----------");
         for (int i = 0; i < arraySize; i++) {
-            System.out.print("| " + i + " | ");
-            System.out.println(theArray[i] + " |");
-            System.out.println("----------");
+            logger.info("| " + i + " | ");
+            logger.info(theArray[i] + " |");
+            logger.info("----------");
 
         }
 
     }
 
     public void printArray1() {
-        System.out.println("----------");
+        logger.info("----------");
         IntStream.range(0, arraySize).forEach( i -> {
-            System.out.print("| " + i + " | ");
-            System.out.println(theArray[i] + " |");
-            System.out.println("----------");
+            logger.info("| " + i + " | ");
+            logger.info(theArray[i] + " |");
+            logger.info("----------");
         });
 
     }
@@ -111,20 +115,20 @@ public class ArrayStructures {
     public String linearSearchForValue(int value) {
         boolean valueInArray = false;
         String indexsWithValue = "";
-        System.out.print("The Value was Found in the Following Indexes: ");
+        logger.info("The Value was Found in the Following Indexes: ");
         for (int i = 0; i < arraySize; i++) {
             if (theArray[i] == value) {
                 valueInArray = true;
-                System.out.print(i + " ");
+                logger.info(i + " ");
                 indexsWithValue += i + " ";
             }
 
         }
         if (!valueInArray) {
             indexsWithValue = "None";
-            System.out.print(indexsWithValue);
+            logger.info(indexsWithValue);
         }
-        System.out.println();
+        logger.info("\n");
         return indexsWithValue;
 
     }
@@ -132,7 +136,7 @@ public class ArrayStructures {
     public void linearSearchForValue1(int value) {
         //int resultIndex = IntStream.range(0, theArray.length).filter(index -> theArray[index] == value).findFirst().orElse(99);
         List<Integer> list = IntStream.range(0, theArray.length).filter(index -> theArray[index] == value).boxed().collect(Collectors.toList());
-        System.out.print("The Value was Found in the Following Indexes: " + list);
+        logger.info("The Value was Found in the Following Indexes: {}" , list);
     }
     // This bubble sort will sort everything from
     // smallest to largest
@@ -169,8 +173,8 @@ public class ArrayStructures {
         ArrayStructures newArray = new ArrayStructures();
         newArray.generateRandomArray1();
         newArray.printArray1();
-        System.out.println(newArray.getValueAtIndex(3));
-        System.out.println(newArray.doesArrayContainThisValue1(18));
+        logger.info("item: {}", newArray.getValueAtIndex(3));
+        logger.info("search item: {}", newArray.doesArrayContainThisValue1(18));
         newArray.deleteIndex(4);
         newArray.printArray1();
         newArray.insertValue(55);

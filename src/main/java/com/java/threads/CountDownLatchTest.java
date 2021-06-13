@@ -1,11 +1,15 @@
 package com.java.threads;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.CountDownLatch;
 
 class Worker {
+    private static final Logger logger = LoggerFactory.getLogger(Worker.class);
     public void print(int n){
         for (int i = 0; i < 5; i++) {
-            System.out.println(n*i);
+            logger.info(String.valueOf(n*i));
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -44,6 +48,7 @@ class Thread5 extends Thread {
 }
 
 public class CountDownLatchTest {
+    private static final Logger logger = LoggerFactory.getLogger(CountDownLatchTest.class);
     public static void main(String[] args) {
         CountDownLatch countDownLatch = new CountDownLatch(2);
         Worker worker = new Worker();
@@ -56,7 +61,7 @@ public class CountDownLatchTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("threads finished execution");
+        logger.info("threads finished execution");
     }
 
 }

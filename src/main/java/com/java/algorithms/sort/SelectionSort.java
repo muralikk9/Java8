@@ -1,7 +1,11 @@
 package com.java.algorithms.sort;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 // complexity of the BubbleSort is O(n)
 public class SelectionSort {
+    private static final Logger logger = LoggerFactory.getLogger(SelectionSort.class);
 
     public static int[] selectionSort(int[] arr) {
         int n = arr.length;
@@ -23,7 +27,7 @@ public class SelectionSort {
 
     public static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+           logger.info(String.valueOf(arr[i]));
         }
     }
 
@@ -31,7 +35,7 @@ public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = {2, 50, 11, 44, 77, 33, 99};
         print(arr);
-        System.out.println("after sorting");
+        logger.info("after sorting");
         print(selectionSort(arr));
     }
 }

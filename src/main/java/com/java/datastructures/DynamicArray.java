@@ -1,6 +1,10 @@
 package com.java.datastructures;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DynamicArray<E> {
+    private static final Logger logger = LoggerFactory.getLogger(DynamicArray.class);
     private Object[] data;
     private int size;
     private int initialCapacity;
@@ -56,7 +60,7 @@ public class DynamicArray<E> {
     public void print() {
         for (int i = 0; i < data.length; i++) {
             if (data[i] != null)
-                System.out.println(data[i]);
+                logger.info("{}", data[i]);
         }
     }
 }

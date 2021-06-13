@@ -1,8 +1,11 @@
 package com.java.algorithms.search;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 // complexity of the linear search is O(n)
 public class LinearSearch {
-
+    private static final Logger logger = LoggerFactory.getLogger(LinearSearch.class);
     private static int search(int[] a, int x) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] == x) {
@@ -16,9 +19,9 @@ public class LinearSearch {
         int[] a = {1, 2, 3, 4, 10, 20};
         int result = search(a, 10);
         if (result == -1) {
-            System.out.println("search element not found");
+            logger.info("search element not found");
         } else {
-            System.out.println("search element found at : " + result);
+            logger.info("search element found at : " + result);
         }
     }
 }
