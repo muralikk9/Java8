@@ -1,5 +1,6 @@
 package com.java.algorithms.sort;
 
+// complexity of the BubbleSort is O(n)
 public class BubbleSort {
 
     public static int[] bubbleSort(int[] arr) {
@@ -24,10 +25,9 @@ public class BubbleSort {
     }
 
 
-
-
     public static void main(String[] args) {
-        int[] arr = {10,23,55,43,12};
+        //int[] arr = {10,23,55,43,12};
+        int[] arr = {2, 50, 11, 44, 77, 33, 99};
         print(arr);
         System.out.println("after sorting");
         print(bubbleSort(arr));
