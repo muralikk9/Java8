@@ -1,4 +1,4 @@
-package com.java.misc;
+package com.java.leetcode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ public class Solution {
         Solution solution = new Solution();
         int[] input = {3, 2, 3};
         int[] output = solution.twoSum(input, 6);
-        logger.info(output[0] + " " + output[1]);
+        logger.info("{}, {}" ,output[0], output[1]);
     }
 
     //https://leetcode.com/problems/two-sum/solution/

@@ -1,6 +1,6 @@
 package com.java.stream;
 
-import com.java.misc.Customer;
+import com.java.model.Customer;
 import com.java.model.Person;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,9 +17,9 @@ public class StreamMap {
         personMap.put(new Person("cde", "def"), 60);
         personMap.put(new Person("abc", "bcd"), 90);
         personMap.put(new Person("def", "efg"), 40);
-
-        List<String> firstNamesList = personMap.entrySet().stream().map(i -> i.getKey().getFirstName()).collect(Collectors.toList());
-        firstNamesList.stream().forEach(i -> log.info("first name={}", i));
+        
+        List<String> firstNamesList = personMap.keySet().stream().map(Person::getFirstName).collect(Collectors.toList());
+        firstNamesList.forEach(i -> log.info("first name={}", i));
 
         Map<Integer, Customer> customerMap = new HashMap<>();
         customerMap.put(2, new Customer(2, "abc", Arrays.asList(121231, 213213)));

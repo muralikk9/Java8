@@ -1,4 +1,4 @@
-package com.java.misc;
+package com.java.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
