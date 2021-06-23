@@ -17,7 +17,6 @@ public class StreamMap {
         personMap.put(new Person("cde", "def"), 60);
         personMap.put(new Person("abc", "bcd"), 90);
         personMap.put(new Person("def", "efg"), 40);
-        
         List<String> firstNamesList = personMap.keySet().stream().map(Person::getFirstName).collect(Collectors.toList());
         firstNamesList.forEach(i -> log.info("first name={}", i));
 
