@@ -33,7 +33,8 @@ public class DynamicArray<E> {
     }
 
     public void resize() {
-        data = Arrays.copyOf(data, initialCapacity * 2);
+        this.initialCapacity = this.initialCapacity * 2;
+        data = Arrays.copyOf(data, this.initialCapacity);
     }
 
     public void delete(int index) {
@@ -47,10 +48,14 @@ public class DynamicArray<E> {
     }
 
     public boolean contains(E value) {
-        return Arrays.stream(data).anyMatch(i -> i == value);
+        return Arrays.stream(data)
+                .filter(Objects::nonNull)
+                .anyMatch(i -> i == value);
     }
 
     public void print() {
-        Arrays.stream(data).filter(Objects::nonNull).forEach(i -> log.info("{}", i));
+        Arrays.stream(data)
+                .filter(Objects::nonNull)
+                .forEach(i -> log.info("{}", i));
     }
 }
