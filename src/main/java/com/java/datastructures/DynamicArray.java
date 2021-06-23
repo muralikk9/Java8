@@ -1,10 +1,12 @@
 package com.java.datastructures;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
+import java.util.Objects;
+
+@Slf4j
 public class DynamicArray<E> {
-    private static final Logger logger = LoggerFactory.getLogger(DynamicArray.class);
     private Object[] data;
     private int size;
     private int initialCapacity;
@@ -25,42 +27,30 @@ public class DynamicArray<E> {
     public void insert(E value) {
         if (initialCapacity == size) {
             resize();
-
         }
         data[size] = value;
         size++;
     }
 
     public void resize() {
-        int newCapacity = initialCapacity * 2;
-        Object[] newData = new Object[newCapacity];
-        for (int i = 0; i < data.length; i++) {
-            newData[i] = data[i];
-        }
-        data = newData;
-        initialCapacity = newCapacity;
+        data = Arrays.copyOf(data, initialCapacity * 2);
     }
 
     public void delete(int index) {
-        for (int i = index; i < data.length; i++) {
-            if(i < data.length-1)
-                data[i] = data[i+1];
+        if (index < data.length) {
+            size--;
         }
+        data = Arrays.stream(data)
+                .filter(i -> i != data[index])
+                .toArray();
         size--;
     }
 
     public boolean contains(E value) {
-        for (int i = 0; i < data.length; i++) {
-            if (data[i] != null && data[i] == value)
-                return true;
-        }
-        return false;
+        return Arrays.stream(data).anyMatch(i -> i == value);
     }
 
     public void print() {
-        for (int i = 0; i < data.length; i++) {
-            if (data[i] != null)
-                logger.info("{}", data[i]);
-        }
+        Arrays.stream(data).filter(Objects::nonNull).forEach(i -> log.info("{}", i));
     }
 }
