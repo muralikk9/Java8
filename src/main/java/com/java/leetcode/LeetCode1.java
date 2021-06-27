@@ -6,16 +6,15 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution {
-    private static final Logger logger = LoggerFactory.getLogger(Solution.class);
+//https://leetcode.com/problems/two-sum/solution/
+public class LeetCode1 {
+    private static final Logger logger = LoggerFactory.getLogger(LeetCode1.class);
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] input = {3, 2, 3};
-        int[] output = solution.twoSum(input, 6);
+        LeetCode1 solution = new LeetCode1();
+        int[] input = {2,7,11,15};
+        int[] output = solution.twoSum(input, 9);
         logger.info("{}, {}" ,output[0], output[1]);
     }
-
-    //https://leetcode.com/problems/two-sum/solution/
 
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();

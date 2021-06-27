@@ -28,15 +28,15 @@ public class Java8Functions {
         logger.info(supplier.get());
 
         Optional<String> optionalS = Optional.of("abc");
-        logger.info(optionalS.isPresent() + " " + optionalS.get() + " " + optionalS.get());
+        logger.info("isPresent: {}, value:{}" ,optionalS.isPresent(), optionalS.get());
 
         UnaryOperator<String> unaryOperator = String::toLowerCase;
         logger.info(unaryOperator.apply("murali"));
 
-        IntBinaryOperator binaryOperator = (n1, n2) -> n1+n2;
+        IntBinaryOperator binaryOperator = Integer::sum;
         logger.info("{}", binaryOperator.applyAsInt(1,2));
 
-        Consumer<String> consumer = item -> logger.info(item);
+        Consumer<String> consumer = logger::info;
         consumer.accept("consumer test");
 
 

@@ -40,7 +40,7 @@ class Car1 {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Interrupted!", e);
         }
         logger.info("completed service of the car: {} " , name);
         return this.charge;

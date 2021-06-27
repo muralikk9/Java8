@@ -21,7 +21,7 @@ public class LinearSearch {
         if (result == -1) {
             logger.info("search element not found");
         } else {
-            logger.info("search element found at : " + result);
+            logger.info("search element found at : {}" , result);
         }
     }
 }

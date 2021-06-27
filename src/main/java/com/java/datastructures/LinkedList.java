@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class LinkedList<E> {
     private class Node<E> {
-        Node next;
+        Node<E> next;
         E data;
 
         public Node(E data) {
@@ -13,10 +13,10 @@ public class LinkedList<E> {
         }
     }
 
-    Node head;
+    Node<E> head;
 
     public void addFront(E data) {
-        Node<E> newnode = new Node(data);
+        Node<E> newnode = new Node<>(data);
         if (head == null) {
             head = newnode;
             return;
@@ -26,12 +26,12 @@ public class LinkedList<E> {
     }
 
     public void addBack(E data) {
-        Node<E> newnode = new Node(data);
+        Node<E> newnode = new Node<>(data);
         if (head == null) {
             head = newnode;
             return;
         }
-        Node current = head;
+        Node<E> current = head;
         while (current.next != null) {
             current = current.next;
         }
@@ -43,7 +43,7 @@ public class LinkedList<E> {
             return 0;
         }
         int count = 1;
-        Node current = head;
+        Node<E> current = head;
         while (current.next != null) {
             current = current.next;
             count++;
@@ -52,14 +52,14 @@ public class LinkedList<E> {
     }
 
     public E getFirst() {
-        return (E) head.data;
+        return head.data;
     }
 
     public void print() {
         if (head == null) {
             throw new RuntimeException("list is empty");
         }
-        Node current = head;
+        Node<E> current = head;
         while (current != null) {
             log.info("{}", current.data);
             current = current.next;

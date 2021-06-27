@@ -22,7 +22,7 @@ class Car {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Interrupted!", e);
         }
         logger.info("completed service of the car: {} " , name);
     }
@@ -46,7 +46,7 @@ public class CarServiceTest {
     public static void main(String[] args) {
         List<String> carList = Arrays.asList("Tiago", "Nexon", "Harrier", "Safari");
         ExecutorService executorService = Executors.newFixedThreadPool(4);
-        carList.stream().forEach(car -> executorService.execute(new ServiceBay(new Car(car))));
+        carList.forEach(car -> executorService.execute(new ServiceBay(new Car(car))));
         executorService.shutdown();
     }
 }

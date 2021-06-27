@@ -1,14 +1,16 @@
 package com.java.threads;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+@Slf4j
 class Producer implements Runnable {
 
-    BlockingQueue blockingQueue;
+    BlockingQueue<Integer> blockingQueue;
 
     public Producer(BlockingQueue<Integer> blockingQueue) {
         this.blockingQueue = blockingQueue;
@@ -28,7 +30,7 @@ class Producer implements Runnable {
             blockingQueue.put(7);
 
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("Interrupted!", e);
         }
     }
 }
@@ -51,7 +53,7 @@ class Consumer implements Runnable {
                 logger.info("get from blocking queue: {}" , blockingQueue.take());
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Interrupted!", e);
         }
     }
 }

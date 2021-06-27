@@ -17,7 +17,7 @@ class Customer {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error("Interrupted!", e);
             }
         } else {
             balance = balance - amount;

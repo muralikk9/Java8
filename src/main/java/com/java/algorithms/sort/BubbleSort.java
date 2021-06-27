@@ -9,7 +9,7 @@ public class BubbleSort {
     private static final Logger logger = LoggerFactory.getLogger(BubbleSort.class);
 
     public static int[] bubbleSort(int[] arr) {
-        int temp = 0;
+        int temp;
         int n = arr.length;
         for (int i = 0; i < n-1; i++) {
             for (int j = 0; j < n-1-i; j++) {
@@ -24,8 +24,8 @@ public class BubbleSort {
     }
 
     public static void print(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            logger.info(String.valueOf(arr[i]));
+        for (int j : arr) {
+            logger.info("{}", j);
         }
     }
 

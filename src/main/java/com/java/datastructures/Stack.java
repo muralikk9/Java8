@@ -16,8 +16,8 @@ public class Stack<E> {
     int size;
 
     public void push(E data) {
-        Node newNode = new Node(data);
-        newNode.data = head;
+        Node<E> newNode = new Node<>(data);
+        newNode.data = (E) head;
         head = newNode;
         size++;
     }

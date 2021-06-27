@@ -13,7 +13,7 @@ class Worker {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.error("Interrupted!", e);
             }
         }
     }
@@ -59,7 +59,7 @@ public class CountDownLatchTest {
         try {
             countDownLatch.await();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Interrupted!", e);
         }
         logger.info("threads finished execution");
     }

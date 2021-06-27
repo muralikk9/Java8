@@ -14,7 +14,7 @@ public class BinarySearch {
         if (result == -1) {
             logger.info("search element not found in array");
         } else {
-            logger.info("search element found at index: " + result);
+            logger.info("search element found at index: {} " , result);
         }
     }
 

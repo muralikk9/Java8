@@ -13,7 +13,7 @@ public class Thread1 extends  Thread{
             Thread.sleep(10000);
             logger.info("my Thread is running");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Interrupted!", e);
         }
 
     }
