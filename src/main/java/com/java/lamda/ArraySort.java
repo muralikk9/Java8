@@ -1,18 +1,18 @@
 package com.java.lamda;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class ArraySort {
-    private static final Logger logger = LoggerFactory.getLogger(ArraySort.class);
+
     public static void main(String[] args) {
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
-        logger.info("Before Sort: {}", names);
+        log.info("Before Sort: {}", names);
         names.sort(String::compareTo);
-        logger.info("After Sort: {}", names);
+        log.info("After Sort: {}", names);
 
     }
 }
