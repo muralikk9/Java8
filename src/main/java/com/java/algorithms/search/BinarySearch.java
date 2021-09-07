@@ -3,7 +3,7 @@ package com.java.algorithms.search;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// complexity of the Binary search is O(n)
+// complexity of the Binary search is O(logn)
 public class BinarySearch {
     private static final Logger logger = LoggerFactory.getLogger(BinarySearch.class);
 
@@ -24,10 +24,10 @@ public class BinarySearch {
             if (arr[mid] == key) {
                 return mid;
             }
-            if (arr[mid] > key) {
-                return binarySearch(arr, first, mid - 1, key);
+            if (key > arr[mid]) {
+                return binarySearch(arr, mid+1, last, key);
             } else {
-                return binarySearch(arr, mid + 1, last, key);
+                return binarySearch(arr, first, mid -1, key);
             }
         }
         return -1;
