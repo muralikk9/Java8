@@ -6,10 +6,13 @@ public class ReverseArray {
 
     public static void main(String[] args) {
         int arr[] = {1, 2, 3, 4, 5, 6};
-        printArray(arr, 6);
-        reverseArray(arr, 0, 5);
-        System.out.print("Reversed array is \n");
-        printArray(arr, 6);
+        //reverseArray(arr);
+        char c[] = {'h','e','l','l','o'};
+        reverseCharArray(c);
+        //printArray(arr, 6);
+        //reverseArray(arr, 0, 5);
+        //System.out.print("Reversed array is \n");
+        //printArray(arr, 6);
     }
 
     private static void reverseArray(int[] arr, int start, int end) {
@@ -20,6 +23,33 @@ public class ReverseArray {
             arr[start] = temp;
             start++;
             end--;
+        }
+        System.out.println();
+    }
+
+    private static void reverseArray(int[] arr) {
+        int nums[] = new int[arr.length];
+        int n = arr.length-1;
+        //int  j = 0;
+        int j = 0;
+        for (int i = n; i >= 0; i--) {
+            nums[j++] = arr[i];
+        }
+        for (int k = 0; k < nums.length; k++) {
+            System.out.print(arr[k]);
+        }
+        System.out.println();
+    }
+
+    private static void reverseCharArray(char[] c) {
+        char nums[] = new char[c.length];
+        int n = c.length-1;
+        int j = 0;
+        for (int i = n; i >= 0; i--) {
+            nums[j++] = c[i];
+        }
+        for (int k = 0; k < nums.length; k++) {
+            System.out.print(c[k]);
         }
         System.out.println();
     }

@@ -1,4 +1,4 @@
-package com.java.datastructures;
+package com.java.datastructures.bst;
 
 class Node {
     int data;

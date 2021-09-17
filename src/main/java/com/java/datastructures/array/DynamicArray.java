@@ -1,4 +1,4 @@
-package com.java.datastructures;
+package com.java.datastructures.array;
 
 import lombok.extern.slf4j.Slf4j;
 
