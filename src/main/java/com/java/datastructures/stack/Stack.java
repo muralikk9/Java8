@@ -13,36 +13,58 @@ public class Stack<E> {
     }
 
     Node<E> head;
-    int size;
+
+    public boolean isEmpty() {
+        return head == null;
+    }
 
     public void push(E data) {
-        Node<E> newNode = new Node<>(data);
-        newNode.data = (E) head;
-        head = newNode;
-        size++;
+        Node<E> newNode = new Node(data);
+        if(head == null) {
+            head = newNode;
+        } else {
+            Node<E> temp = head;
+            head = newNode;
+            newNode.next = temp;
+        }
     }
 
     public E pop() {
+        E data;
         if (head == null) {
             throw new EmptyStackException();
-        }
-        E data = head.data;
-        if (head.next != null)
+        } else {
+            data = head.data;
             head = head.next;
-        size--;
-        return data;
-    }
-
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
+        }
+        return  data;
     }
 
     public E peek() {
-        return head.data;
+        if (head == null) {
+            throw new EmptyStackException();
+        } else {
+            return head.data;
+        }
     }
+
+    public int size() {
+        int count = 0;
+        if (head == null) {
+            return 0;
+        } else {
+            Node temp = head;
+            while(temp != null) {
+                count++;
+                temp = temp.next;
+            }
+        }
+        return count;
+    }
+
+
+
+
+
 
 }
